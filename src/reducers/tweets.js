@@ -13,6 +13,7 @@ export default function tweets(state = {}, action) {
       let replyingTo = {};
 
       if (tweet.replyingTo !== null) {
+        console.log("replyingto");
         replyingTo = {
           [tweet.replyingTo]: {
             ...state[tweet.replyingTo],

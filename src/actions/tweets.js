@@ -15,14 +15,14 @@ function addTweet(tweet) {
 export function handleAddTweet(tweet) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
-    const { text, replyingTo } = tweet;
+    const { text, id } = tweet;
 
     dispatch(showLoading());
     console.log(text);
     return saveTweet({
       text,
       author: authedUser,
-      replyingTo
+      replyingTo: id
     })
       .then(tweet => dispatch(addTweet(tweet)))
       .then(() => dispatch(hideLoading()));
